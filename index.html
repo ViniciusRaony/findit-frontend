@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>ToDoList</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="assets/css/main.css" rel="stylesheet">
+
+        <style>
+     
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">ToDoList</a>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Adicionar</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="addTaskBtn" class="btn btn-primary" data-toggle="modal" data-target="#createTaskModal">Add tarefa</button>    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tasks">
+                            <!-- Aqui será preenchido dinamicamente com dados vindos da API -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal de edição -->
+        <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTaskModalLabel">Editar Tarefa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="editTaskForm">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="title">Tarefa</label>
+                                <input type="text" class="form-control" id="title" name="title" required>
+                            </div>                      
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="Pendente">Pendente</option>
+                                    <option value="Concluida">Concluída</option>
+                                </select>
+                            </div>
+                            <input type="hidden" id="taskId" name="taskId">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de criação -->
+        <div class="modal fade" id="createTaskModal" tabindex="-1" role="dialog" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createTaskModalLabel">Adicionar Tarefa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="createTaskForm">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="title2">Tarefa</label>
+                                <input type="text" class="form-control" id="title2" name="title2" required>
+                            </div>                      
+                            <div class="form-group">
+                                <label for="status2">Status</label>
+                                <select class="form-control" id="status2" name="status2" required>
+                                    <option value="Pendente">Pendente</option>
+                                    <option value="Concluida">Concluída</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit2" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>         
+
+        <!-- JS Files -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
+                    
