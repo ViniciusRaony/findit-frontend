@@ -1,7 +1,7 @@
 {
   "start_url": "index.html",
-  "name": "Kazumi",
-  "short_name": "Kazumi",
+  "name": "ToDoList",
+  "short_name": "ToDoList",
   "icons": [
     {
       "src": "assets/img/icon_40.png",

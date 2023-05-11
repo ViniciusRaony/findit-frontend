@@ -8,9 +8,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="assets/css/main.css" rel="stylesheet">
 
-        <style>
-     
-        </style>
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Menifest -->
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#ffffff" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg">
@@ -110,7 +114,36 @@
                     </form>
                 </div>
             </div>
-        </div>         
+        </div>  
+
+        <script>
+            let newWorker;
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js').then(reg => {
+                    reg.addEventListener('updatefound', () => {
+                        // A wild service worker has appeared in reg.installing!
+                        newWorker = reg.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            // Has network.state changed?
+                            switch (newWorker.state) {
+                                case 'installed':
+                                    if (navigator.serviceWorker.controller) {
+                                        // new update available
+                                    }
+                                    // No update available
+                                    break;
+                            }
+                        });
+                    });
+                });
+                let refreshing;
+                navigator.serviceWorker.addEventListener('controllerchange', function () {
+                    if (refreshing) return;
+                    window.location.reload();
+                    refreshing = true;
+                });
+            }
+        </script>
 
         <!-- JS Files -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
