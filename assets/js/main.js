@@ -1,24 +1,9 @@
-// document.querySelector('.btn').addEventListener('click', () => {
-//     const email = document.querySelector('#exampleInputEmail1').value;
-//     const password = document.querySelector('#exampleInputPassword1').value;
-
-//     fetch(`http://sua-api.com/login?email=${email}&password=${password}`)
-//         .then(response => {
-//             if (response.ok) {
-//                 window.location.href = 'home.html';
-//             } else {
-//                 alert('Usuário inválido.');
-//             }
-//         });
-// });
-
-
 // ###############################################
 // ########### AJAX PARA ACESSAR API #############
 // ###############################################
 // GET - Ler dados da API e preencher a tabela
 $.ajax({
-    url: 'http://localhost:8000/v1/api/cadastro/',
+    url: 'https://site-sq75eata2q-uc.a.run.app/v1/api/cadastro/',
     method: 'GET',
     success: function(data) {
         var tableBody = '';
@@ -48,7 +33,7 @@ $(document).ready(function() {
     
       // Relizar solicitação AJAX para criar a nova tarefa
       $.ajax({
-        url: 'http://localhost:8000/v1/api/cadastro',
+        url: 'https://site-sq75eata2q-uc.a.run.app/v1/api/cadastro',
         type: 'POST',
         data: JSON.stringify({titulo: title, status: status}),
         contentType: 'application/json',
@@ -83,7 +68,7 @@ $('table').on('click', '.edit-item', function() {
 
     // Realizar solicitação AJAX para obter os dados da tarefa
     $.ajax({
-        url: 'http://localhost:8000/v1/api/cadastro/' + taskId,
+        url: 'https://site-sq75eata2q-uc.a.run.app/v1/api/cadastro/' + taskId,
         method: 'GET',
         success: function(data) {
             // Preencher o formulário de edição com os dados da tarefa
@@ -111,7 +96,7 @@ $('table').on('click', '.edit-item', function() {
   
     // Realizar solicitação AJAX para atualizar a tarefa
     $.ajax({
-      url: 'http://localhost:8000/v1/api/cadastro/' + taskId,
+      url: 'https://site-sq75eata2q-uc.a.run.app/v1/api/cadastro/' + taskId,
       type: 'PUT',
       data: JSON.stringify({titulo: title, status: status}),
       contentType: 'application/json',
@@ -134,7 +119,7 @@ $(document).ready(function() {
         var itemId = $(this).attr('data-id');
         // Enviar solicitação DELETE para o servidor
         $.ajax({
-            url: 'http://localhost:8000/v1/api/cadastro/' + itemId,
+            url: 'https://site-sq75eata2q-uc.a.run.app/v1/api/cadastro/' + itemId,
             method: 'DELETE',
             beforeSend: function(xhr, settings) {
                 xhr.setRequestHeader('X-CSRFToken', $('input[name="csrfmiddlewaretoken"]').val());
@@ -153,7 +138,7 @@ $(document).ready(function() {
 // Atualizar lista após fechar o modal
 function atualizarTabela() {
 $.ajax({
-    url: 'http://localhost:8000/v1/api/cadastro/',
+    url: 'https://site-sq75eata2q-uc.a.run.app/v1/api/cadastro/',
     method: 'GET',
     success: function(data) {
     var tableBody = '';
