@@ -1,1 +1,4 @@
-# FRONTEND TODO LIST para consumir API findit
+# Frontend TODO LIST para consumir do repositório API Django Ninja
+
+## Netlify
+https://finditapi.netlify.app/
