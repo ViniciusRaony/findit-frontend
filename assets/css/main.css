@@ -2,13 +2,14 @@ body {
     border: 0;
     margin: 0;
     padding: 0;
+    background-color: aliceblue;
 }
 
 /*botão login*/
-.btn-my-color {
-    background-color: #000000;
+/* .btn-my-color {    
+    background-color: #31e7ff;
     border-color: #000000;
-}
+} */
 
 .form-label {
     font-family: 'Arial,sans-serif';
@@ -47,12 +48,9 @@ body {
   }
 
 
-body {
-    background-color: #f8f9fa;
-}
 .navbar {
-    background-color: #343a40;
-    color: #fff;
+    background-color: #000000;
+    /* color: #fff; */
 }
 .container {
     margin-top: 30px;
